@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+
       import type { PageData } from './$types';
       import { page } from '$app/stores';
   import { enhance } from '$app/forms';
@@ -14,7 +14,8 @@
       } = data);
   
     const client = $page.data.client
-      let value = '.'
+    let value = ' '
+
   </script>
   
   <svelte:head>
@@ -161,7 +162,7 @@
                           <form class="form-send-message d-flex justify-content-between align-items-center" action="?/add" method="POST" use:enhance>
                             <input type="text" class="form-control message-input border-0 me-3 shadow-none" bind:value={value}  placeholder="پیام خود را اینجا بنویسید">
                             <input type="hidden" bind:value={value} name="messageSended" placeholder="پیام خود را اینجا بنویسید">
-                            <input type="hidden" name="userID" value="{client.name}">
+
                             <div class="message-actions d-flex align-items-center">
                               <button class="btn btn-primary d-flex send-msg-btn">
                                 <i class="bx bx-paper-plane me-md-1 me-0"></i>

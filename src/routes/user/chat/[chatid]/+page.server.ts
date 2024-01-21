@@ -64,11 +64,12 @@ return {
 
 
 export const actions = {
-    add: async ({ cookies, request, params }: any) => {
+    add: async ({ cookies, request, params, locals }: any) => {
+
 
         try {
             const data: any = await request.formData();
-            const client: Object | any = data.get('userID')
+            const client: any = locals.client
 
             let selectedChat = params.chatid
 
@@ -79,7 +80,7 @@ export const actions = {
                     "message": [
                         {
                             "send": client,
-                            "body": data.get('messageSend'),
+                            "body": data.get('messageSended'),
                             "time": new Date(),
                             "seen": false
                         }

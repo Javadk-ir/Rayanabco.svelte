@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-    import type { PageData } from './$types';
 
+    import type { PageData } from './$types';
+    import { enhance } from '$app/forms';
+  let value = ' '
     export let data: PageData;
     $: ({
       client,
@@ -9,26 +10,6 @@
     GroupChat,
     chatroommessage
     } = data);
-
-
-    function gettimer(value1: any, value2: any) {
-          let date1 = value1
-          let date2 = value2
-          if (value1 == undefined) date1 = new Date()
-          if (value2 == undefined) date2 = date1
-
-          let diff = date2.getTime() - date1.getTime();
-
-          let msec = diff;
-          let hh = Math.floor(msec / 1000 / 60 / 60);
-          msec -= hh * 1000 * 60 * 60;
-          let mm = Math.floor(msec / 1000 / 60);
-          msec -= mm * 1000 * 60;
-          let ss = Math.floor(msec / 1000);
-          msec -= ss * 1000;
-
-          return hh + ":" + mm + ":" + ss
-      }
 
 </script>
 
@@ -125,11 +106,6 @@
                                     <!-- TODO DOKME HAZF EzAFE KON -->
                                   </p>
                                 </div>
-                                <div class="text-end text-muted mt-1">
-                                  <i class="bx bx-check-double text-success"></i>
-                                  <small>{gettimer(chatroommessage.message[index].time,new Date())}  پیش
-                                  </small>
-                                </div>
                               </div>
                               <div class="user-avatar flex-shrink-0 ms-3">
                                 <div class="avatar avatar-sm">
@@ -161,11 +137,6 @@
                                     <!-- TODO DOKME HAZF EzAFE KON -->
                                   </p>
                                 </div>
-                                <div class="text-end text-muted mt-1">
-                                  <i class="bx bx-check-double text-success"></i>
-                                  <small>{gettimer(chatroommessage.message[index].time,new Date())}  پیش
-                                  </small>
-                                </div>
                               </div>
                               <div class="user-avatar flex-shrink-0 ms-3">
                                 <div class="avatar avatar-sm">
@@ -183,11 +154,6 @@
                                     <!-- TODO DOKME HAZF EzAFE KON -->
                                   </p>
                                 </div>
-                                <div class="text-end text-muted mt-1">
-                                  <i class="bx bx-check-double text-success"></i>
-                                  <small>{gettimer(chatroommessage.message[index].time,new Date())}  پیش
-                                  </small>
-                                </div>
                               </div>
                               <div class="user-avatar flex-shrink-0 ms-3">
                                 <div class="avatar avatar-sm">
@@ -204,8 +170,9 @@
                       </div>
                       <!-- Chat message form -->
                       <div class="chat-history-footer shadow-sm">
-                        <form class="form-send-message d-flex justify-content-between align-items-center">
-                          <input class="form-control message-input border-0 me-3 shadow-none" placeholder="پیام خود را اینجا بنویسید">
+                        <form class="form-send-message d-flex justify-content-between align-items-center" action="?/add" method="POST" use:enhance>
+                          <input type="text" class="form-control message-input border-0 me-3 shadow-none" bind:value={value}  placeholder="پیام خود را اینجا بنویسید">
+                          <input type="hidden" bind:value={value} name="messageSended">
                           <div class="message-actions d-flex align-items-center">
                             <button class="btn btn-primary d-flex send-msg-btn">
                               <i class="bx bx-paper-plane me-md-1 me-0"></i>

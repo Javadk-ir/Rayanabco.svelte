@@ -15,7 +15,7 @@
 {#if form?.success}
 <ToastSuccess/>
 {/if}
-<section class="px-4 pt-3" style="background-color:rgb(255, 255, 255)">
+<section class="px-4 pt-3 bg-light" >
     <div class="row" >
     <div class="col-9">
     <h1 class=" fs-5 fw-bold fw-bold">مدیریت محصولات</h1>

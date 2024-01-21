@@ -1,4 +1,4 @@
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad, Action } from './$types';
 import { userModel } from '$lib/models/userModel'
 import { chatModel } from '$lib/models/chatModel'
 
@@ -49,3 +49,53 @@ export const load = (async (event: { locals: { client: any; }; }, params: any) =
         console.log(error)
     }
 });
+
+
+
+export const actions = {
+    add: async ({ cookies, request, locals }: any) => {
+
+        try {
+            const data: any = await request.formData();
+            const client: any = locals.client
+
+
+            let chatroommessage: any = await chatModel.findOne({ $or: [{ chatroom: { $eq: [client.name, client.name] } }, { chatroom: { $eq: [client.name, client.name] } }] });
+            if (chatroommessage == null) {
+                const newchatmesssage = new chatModel({
+                    chatroom: [client, client.name],
+                    "message": [
+                        {
+                            "send": client.name,
+                            "body": data.get('messageSended'),
+                            "time": new Date(),
+                            "seen": false
+                        }
+                    ]
+
+                });
+                await chatModel.create(newchatmesssage);
+
+            } else {
+                await chatModel.findOneAndUpdate({ $or: [{ chatroom: { $eq: [client.name, client.name] } }, { chatroom: { $eq: [client.name, client.name] } }] },
+                    {
+                        $push: {
+                            "message": [
+                                {
+                                    "send": client.name,
+                                    "body": data.get('messageSended'),
+                                    "time": new Date(),
+                                    "seen": false
+                                }
+                            ]
+                        }
+
+                    });
+            }
+            return{successfull: true}
+        } catch (error) {
+            console.log(error);
+        }
+    
+    }
+};
