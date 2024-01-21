@@ -8,7 +8,7 @@
     export let form;
     export let data: PageData;
 
-    $: ({client,} = data);
+    $: ({client} = data);
 </script>
 
 

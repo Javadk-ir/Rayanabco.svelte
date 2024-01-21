@@ -24,30 +24,50 @@
   <ul class="menu-inner py-1">
     <!-- Page -->
     <li class="menu-item active">
-      <a href="/user" class="menu-link">
+      <a data-sveltekit-preload-data="hover" href="/user" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Page 1">صفحه اصلی</div>
+        <div data-i18n="Homepage">صفحه اصلی</div>
       </a>
     </li>
     {#if client.class != 'D'}
-    {#if client.class == 'A' || client.class == 'B'|| client.parentProffesion == 'فروش'}
     <li class="menu-item">
-      <a href="/user/chat" class="menu-link">
-        <i class="menu-icon fa-regular fa-comment-dots"></i>
-        <div data-i18n="Page 1">رایاچت</div>
+      <a data-sveltekit-preload-data="hover" href="/user/shop" class="menu-link">
+        <i class='menu-icon bx bx-store-alt'></i>
+        <div data-i18n="shop">سفارشات</div>
       </a>
     </li>
+    {#if client.class == 'A' || client.class == 'B'|| client.parentProffesion == 'فروش'}
+    <li class="menu-item">
+      <a data-sveltekit-preload-data="hover"  href="/user/chat" class="menu-link">
+        <i class='menu-icon bx bx-message-rounded-dots' ></i>
+        <div data-i18n="Raya Chat">رایاچت</div>
+      </a>
+    </li>
+    {#if client.class == 'A'}
+    <li class="menu-item" >
+      <a data-sveltekit-preload-data="hover" href="/user/callcenter" class="menu-link text-light">
+        <i class='menu-icon bx bx-headphone'></i>
+        <div data-i18n="Call Controller">سرنخ (در دست ساخت)</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a data-sveltekit-preload-data="hover" href="/user/callcontroller" class="menu-link" data-sveltekit-reload>
+        <i class='menu-icon bx bx-microphone' ></i>
+        <div data-i18n="Call Controller">کنترل تماس</div>
+      </a>
+    </li>
+    {/if}
     <li class="menu-item">
       <!-- svelte-ignore a11y-invalid-attribute -->
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class='menu-icon bx bx-user'></i>
-        <div data-i18n="Misc">کاربران</div>
+        <div data-i18n="Users">کاربران</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
           <a href="/user/client/customer" class="menu-link">
             
-            <div data-i18n="Page 1">مشتریان</div>
+            <div data-i18n="Customers">مشتریان</div>
           </a>
         </li>
       </ul>
@@ -55,9 +75,9 @@
 
       <ul class="menu-sub">
         <li class="menu-item">
-          <a href="/user/client/employe" class="menu-link">
+          <a data-sveltekit-preload-data="hover" href="/user/client/employe" class="menu-link">
            
-            <div data-i18n="Page 1">کارکنان</div>
+            <div data-i18n="employes">کارکنان</div>
           </a>
         </li>
       </ul>
@@ -67,17 +87,17 @@
     {/if}
     {#if client.class == 'A' || client.class == 'B'}
     <li class="menu-item">
-      <a href="/user/blog" class="menu-link">
+      <a data-sveltekit-preload-data="hover" href="/user/blog" class="menu-link">
         <i class='menu-icon bx bx-rss' ></i>
-        <div data-i18n="Page 1">بلاگ</div>
+        <div data-i18n="blog">بلاگ</div>
       </a>
     </li>
     {/if}
     {#if client.class == 'A' || client.class == 'B'|| client.parentProffesion == 'انبار'}
     <li class="menu-item">
-      <a href="/user/product" class="menu-link">
+      <a data-sveltekit-preload-data="hover" href="/user/product" class="menu-link">
         <i class='menu-icon bx bx-purchase-tag-alt'></i>
-        <div data-i18n="Page 1">محصولات</div>
+        <div data-i18n="Products">محصولات</div>
       </a>
     </li>
     {/if}
@@ -85,16 +105,16 @@
     <li class="menu-item">
       <a href="/user/shareFolder" class="menu-link">
         <i class='menu-icon tf-icons bx bx-folder-open' ></i>
-        <div data-i18n="Page 1">پوشه اشتراک</div>
+        <div data-i18n="Share Folder">پوشه اشتراک</div>
       </a>
     </li>
     <hr>
     {/if}
     
     <li class="menu-item">
-      <a href="/" class="menu-link">
+      <a data-sveltekit-preload-data="hover" href="/" class="menu-link">
         <i class='menu-icon tf-icons bx bx-exit' ></i>
-        <div data-i18n="Page 2">خروج</div>
+        <div data-i18n="Exit">خروج</div>
       </a>
     </li>
   </ul>

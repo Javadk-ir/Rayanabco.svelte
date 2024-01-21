@@ -1,10 +1,35 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
     import type { PageData } from './$types';
 
     export let data: PageData;
     $: ({
-    users
+      client,
+    users,
+    GroupChat,
+    chatroommessage
     } = data);
+
+
+    function gettimer(value1: any, value2: any) {
+          let date1 = value1
+          let date2 = value2
+          if (value1 == undefined) date1 = new Date()
+          if (value2 == undefined) date2 = date1
+
+          let diff = date2.getTime() - date1.getTime();
+
+          let msec = diff;
+          let hh = Math.floor(msec / 1000 / 60 / 60);
+          msec -= hh * 1000 * 60 * 60;
+          let mm = Math.floor(msec / 1000 / 60);
+          msec -= mm * 1000 * 60;
+          let ss = Math.floor(msec / 1000);
+          msec -= ss * 1000;
+
+          return hh + ":" + mm + ":" + ss
+      }
+
 </script>
 
 <svelte:head>
@@ -29,15 +54,37 @@
                         <li class="chat-contact-list-item chat-contact-list-item-title">
                           <h5 class="text-primary mb-0 secondary-font">گفتگوها</h5>
                         </li>
+                        <li class="chat-contact-list-item">
+                          <a href="/user/chat" class="d-flex align-items-center">
+                            <div class="flex-shrink-0 avatar">
+                              <i class="fa-regular fa-solid fa-bookmark text-info rounded-circle" style="font-size: 20px;"></i>
 
+                            </div>
+                            <div class="chat-contact-info flex-grow-1 ms-3">
+                              <h6 class="chat-contact-name text-truncate m-0">Saved Message</h6>
+                            </div>
+                          </a>
+                        </li>
                         {#each users as user}
                         <li class="chat-contact-list-item">
-                          <a href="hh" class="d-flex align-items-center">
+                          <a href="/user/chat/{user.name}" class="d-flex align-items-center">
                             <div class="flex-shrink-0 avatar">
-                              <img src="https://cdn.jsdelivr.net/gh/3exyDevil/Website-Files@main/assets/img/avatars/13.png" alt="آواتار" class="rounded-circle">
+                              <img src="https://rayanabcom.storage.iran.liara.space/assest/defualt-img.png" alt="آواتار" class="rounded-circle">
                             </div>
                             <div class="chat-contact-info flex-grow-1 ms-3">
                               <h6 class="chat-contact-name text-truncate m-0">{user.name}</h6>
+                            </div>
+                          </a>
+                        </li>
+                        {/each}
+                        {#each GroupChat as user}
+                        <li class="chat-contact-list-item">
+                          <a href="/user/chat/{user.GPname}" class="d-flex align-items-center">
+                            <div class="flex-shrink-0 avatar">
+                              {user.GPicon}
+                            </div>
+                            <div class="chat-contact-info flex-grow-1 ms-3">
+                              <h6 class="chat-contact-name text-truncate m-0">{user.GPname}</h6>
                             </div>
                           </a>
                         </li>
@@ -55,11 +102,11 @@
                           <div class="d-flex overflow-hidden align-items-center">
                             <i class="bx bx-menu bx-sm cursor-pointer d-lg-none d-block me-2" data-bs-toggle="sidebar" data-overlay data-target="#app-chat-contacts"></i>
                             <div class="flex-shrink-0 avatar">
-                              <img src="https://cdn.jsdelivr.net/gh/3exyDevil/Website-Files@main/assets/img/avatars/2.png" alt="آواتار" class="rounded-circle" data-bs-toggle="sidebar" data-overlay data-target="#app-chat-sidebar-right">
+                              <i class="fa-regular fa-solid fa-bookmark text-info rounded-circle" data-bs-toggle="sidebar" data-overlay data-target="#app-chat-sidebar-right" style="font-size: 20px;"></i>
                             </div>
                             <div class="chat-contact-info flex-grow-1 ms-3">
-                              <h6 class="m-0">دیوید بکهام</h6>
-                              <small class="user-status text-muted">توسعه دهنده NextJS</small>
+                              <h6 class="m-0">Save Messaged</h6>
+                              <!-- <small class="user-status text-muted">توسعه دهنده NextJS</small> -->
                             </div>
                           </div>
 
@@ -67,24 +114,91 @@
                       </div>
                       <div class="chat-history-body bg-body">
                         <ul class="list-unstyled chat-history mb-0">
+
+                          {#each {length: chatroommessage.message.length} as _, index}
+                          {#if chatroommessage.send == client.name}
                           <li class="chat-message chat-message-right">
                             <div class="d-flex overflow-hidden">
                               <div class="chat-message-wrapper flex-grow-1">
                                 <div class="chat-message-text">
-                                  <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</p>
+                                  <p class="mb-0">{chatroommessage.message[index].body} 
+                                    <!-- TODO DOKME HAZF EzAFE KON -->
+                                  </p>
                                 </div>
                                 <div class="text-end text-muted mt-1">
                                   <i class="bx bx-check-double text-success"></i>
-                                  <small>10:00 ق.ظ</small>
+                                  <small>{gettimer(chatroommessage.message[index].time,new Date())}  پیش
+                                  </small>
                                 </div>
                               </div>
                               <div class="user-avatar flex-shrink-0 ms-3">
                                 <div class="avatar avatar-sm">
-                                  <img src="https://cdn.jsdelivr.net/gh/3exyDevil/Website-Files@main/assets/img/avatars/1.png" alt="آواتار" class="rounded-circle">
+                                  <img src="https://rayanabcom.storage.iran.liara.space/assest/defualt-img.png" alt="آواتار" class="rounded-circle">
                                 </div>
                               </div>
                             </div>
                           </li>
+
+                          {:else if chatroommessage.message[index].send=='sys'}
+                          <li class="chat-message chat-message-right">
+                            <div class="d-flex overflow-hidden">
+                              <div class="chat-message-wrapper flex-grow-1">
+                                <div class="chat-message-text">
+                                  <p class="mb-0">{chatroommessage.message[index].body} 
+                                    <!-- TODO DOKME HAZF EzAFE KON -->
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          {:else}
+                          {#if chatroommessage.message[index].send == chatroommessage.GPcreator}
+                          <li class="chat-message chat-message-left">
+                            <div class="d-flex overflow-hidden">
+                              <div class="chat-message-wrapper flex-grow-1">
+                                <div class="chat-message-text">
+                                  <p class="mb-0">{chatroommessage.message[index].body} 
+                                    <!-- TODO DOKME HAZF EzAFE KON -->
+                                  </p>
+                                </div>
+                                <div class="text-end text-muted mt-1">
+                                  <i class="bx bx-check-double text-success"></i>
+                                  <small>{gettimer(chatroommessage.message[index].time,new Date())}  پیش
+                                  </small>
+                                </div>
+                              </div>
+                              <div class="user-avatar flex-shrink-0 ms-3">
+                                <div class="avatar avatar-sm">
+                                  <img src="https://rayanabcom.storage.iran.liara.space/assest/defualt-img.png" alt="آواتار" class="rounded-circle">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          {:else}
+                          <li class="chat-message chat-message-left">
+                            <div class="d-flex overflow-hidden">
+                              <div class="chat-message-wrapper flex-grow-1">
+                                <div class="chat-message-text">
+                                  <p class="mb-0">{chatroommessage.message[index].body} 
+                                    <!-- TODO DOKME HAZF EzAFE KON -->
+                                  </p>
+                                </div>
+                                <div class="text-end text-muted mt-1">
+                                  <i class="bx bx-check-double text-success"></i>
+                                  <small>{gettimer(chatroommessage.message[index].time,new Date())}  پیش
+                                  </small>
+                                </div>
+                              </div>
+                              <div class="user-avatar flex-shrink-0 ms-3">
+                                <div class="avatar avatar-sm">
+                                  <img src="https://rayanabcom.storage.iran.liara.space/assest/defualt-img.png" alt="آواتار" class="rounded-circle">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          {/if}
+                          {/if}
+                          {/each}
 
                         </ul>
                       </div>
@@ -93,11 +207,6 @@
                         <form class="form-send-message d-flex justify-content-between align-items-center">
                           <input class="form-control message-input border-0 me-3 shadow-none" placeholder="پیام خود را اینجا بنویسید">
                           <div class="message-actions d-flex align-items-center">
-                            <i class="speech-to-text bx bx-microphone bx-sm cursor-pointer"></i>
-                            <label for="attach-doc" class="form-label mb-0">
-                              <i class="bx bx-paperclip bx-sm cursor-pointer mx-3"></i>
-                              <input type="file" id="attach-doc" hidden>
-                            </label>
                             <button class="btn btn-primary d-flex send-msg-btn">
                               <i class="bx bx-paper-plane me-md-1 me-0"></i>
                               <span class="align-middle d-md-inline-block d-none">ارسال</span>
