@@ -23,7 +23,7 @@ export const handle: Handle =  async ({ event, resolve}): Promise<any> => {
 		!authToken &&
 		(url.pathname.startsWith('/user') || url.pathname.startsWith('/logout'))
 	) {
-		throw error(401, 'You are not logged in. Please provide a Email and Password to gain access.');
+		throw error(401, 'وارد حساب کاربری خود نشده اید. وارد صفحه ورود شده و اطلاعات خودرا تکمیل کنید.');
 	}
     
 	try {
@@ -32,14 +32,14 @@ export const handle: Handle =  async ({ event, resolve}): Promise<any> => {
 			const user2 = await user.findOne({ email: sub.email});
 
 			if (!user2) {
-				throw error(401, 'User belonging to this token no longer exists');
+				throw error(401, 'محتویات وصل شده به این کاربر نامعتبر میباشد');
 			}
 
 			event.locals.client = user2;
 		}
 	} catch (err: any) {
 		if (url.pathname.startsWith('/user')) {
-			throw error(401, "Token is invalid or user doesn't exists");
+			throw error(401, "کلید نا معتبر است یا کاربر غیر مجاز است");
 		}
 	}
 

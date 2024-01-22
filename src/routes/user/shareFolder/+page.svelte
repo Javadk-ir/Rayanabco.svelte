@@ -32,7 +32,7 @@
 <!-- Content wrapper -->
 <div class="content-wrapper">
   <!-- Content -->
-  <section class="px-4 pt-3 " >
+  <section class="px-4 pt-3 bg-light" >
     <h1 class=" fs-5 fw-bold fw-bold">مدیریت فایل</h1>
     <p class="text-muted mt-1 fw-semibold">
         <a href="/user" class="link">خانه</a>

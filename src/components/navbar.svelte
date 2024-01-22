@@ -1,4 +1,8 @@
-         <!-- Navbar -->
+<script lang="ts">
+	import { page } from '$app/stores';
+  const client = $page.data.client
+</script>
+<!-- Navbar -->
           <nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme" id="layout-navbar">
             <div class="container-fluid">
               <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -62,23 +66,23 @@
 
                   <!-- User -->
                   <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                    <a class="nav-link dropdown-toggle hide-arrow" href="/;" data-bs-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle hide-arrow" href="/user/setting" data-bs-toggle="dropdown">
                       <div class="avatar avatar-online">
-                        <img src="https://cdn.jsdelivr.net/gh/3exyDevil/Website-Files@main/assets/img/avatars/1.png" alt="profileImage"  class="rounded-circle">
+                        <img src="https://rayanabcom.storage.iran.liara.space/assest/defualt-img.png" alt="profileImage"  class="rounded-circle">
                       </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                       <li>
-                        <a class="dropdown-item" href="pages-account-settings-account.html">
+                        <a class="dropdown-item" href="/user/setting">
                           <div class="d-flex align-items-center">
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar avatar-online">
-                                <img src="https://cdn.jsdelivr.net/gh/3exyDevil/Website-Files@main/assets/img/avatars/1.png" alt="profileImage"  class="rounded-circle">
+                                <img src="https://rayanabcom.storage.iran.liara.space/assest/defualt-img.png" alt="profileImage"  class="rounded-circle">
                               </div>
                             </div>
                             <div class="flex-grow-1">
-                              <span class="fw-semibold d-block">جان اسنو</span>
-                              <small>مدیر</small>
+                              <span class="fw-semibold d-block">{client.name}</span>
+                              <small>{client.parentProffesion}</small>
                             </div>
                           </div>
                         </a>
@@ -87,52 +91,16 @@
                         <div class="dropdown-divider"></div>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="pages-profile-user.html">
-                          <i class="bx bx-user me-2"></i>
-                          <span class="align-middle">پروفایل من</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="pages-account-settings-account.html">
+                        <a class="dropdown-item" href="/user/setting">
                           <i class="bx bx-cog me-2"></i>
                           <span class="align-middle">تنظیمات</span>
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="pages-account-settings-billing.html">
-                          <span class="d-flex align-items-center align-middle">
-                            <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                            <span class="flex-grow-1 align-middle">صورتحساب</span>
-                            <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
                         <div class="dropdown-divider"></div>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="pages-help-center-landing.html">
-                          <i class="bx bx-support me-2"></i>
-                          <span class="align-middle">راهنمایی</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="pages-faq.html">
-                          <i class="bx bx-help-circle me-2"></i>
-                          <span class="align-middle">سوالات متداول</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="pages-pricing.html">
-                          <i class="bx bx-dollar me-2"></i>
-                          <span class="align-middle">قیمت گذاری</span>
-                        </a>
-                      </li>
-                      <li>
-                        <div class="dropdown-divider"></div>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                        <a class="dropdown-item" href="/" >
                           <i class="bx bx-power-off me-2"></i>
                           <span class="align-middle">خروج</span>
                         </a>
@@ -141,12 +109,6 @@
                   </li>
                   <!--/ User -->
                 </ul>
-              </div>
-
-              <!-- Search Small Screens -->
-              <div class="navbar-search-wrapper search-input-wrapper d-none">
-                <input type="text" class="form-control search-input container-fluid border-0" placeholder="جستجو ..." aria-label="Search...">
-                <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
               </div>
             </div>
           </nav>

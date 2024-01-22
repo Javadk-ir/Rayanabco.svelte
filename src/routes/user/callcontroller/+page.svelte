@@ -71,7 +71,7 @@ if(information[i].innerText.includes('.')
 <div class="content-wrapper">
 
 <section class="p-2 px-4 pt-3 col">
-    <h6 style="text-align: center;">تماس های گرفته شده با شخص</h6>
+    <h6 style="text-align: center;">تماس های 12 ساعت اخیر</h6>
     <br>
       <div class="row">
           <table class="table align-middle mb-0 bg-white">

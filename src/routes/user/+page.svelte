@@ -528,7 +528,7 @@
             <tbody class="table-border-bottom-0">
               {#each orderinfo as element}
               {#if element.nextstep != 'بایگانی'}
-              {#if element.submittedby == client.name || client.class == 'A' && element.nextstep != 'اتمام' }
+              {#if element.submittedby == client.name || client.class == 'A' || client.class == 'B' || client.childProffesion == 'قروش - مدیر' && element.nextstep != 'اتمام' }
               <tr>
                   <td>
                       {#if element.nextstep=='انبار' }
