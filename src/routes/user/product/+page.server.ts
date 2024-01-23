@@ -20,7 +20,7 @@ export const actions = {
         const data: any = await request.formData();
         const id: string =  data.get('name')
         const documentimage: any = await productModel.findOne({title: id})
-        
+        //chek if input for iamges empty or not
         if(documentimage.image[0] != null) {
             await DeleteFromCloud(documentimage.image[0], 'mahsolat', 'rayanabcom' )
         }

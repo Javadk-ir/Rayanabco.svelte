@@ -26,7 +26,7 @@
 </div>
       <div class="col-3 overflow-y-scroll">
         <br>
-        <a href="/user/product/upload" class="btn btn-success w-100">محصولات <i class='bx bx-plus'></i></a>
+        <a href="/user/product/upload" class="btn btn-success w-100">محصول جدید <i class='bx bx-plus'></i></a>
     </div>
 </div>
 </section>

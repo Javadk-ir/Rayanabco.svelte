@@ -62,8 +62,7 @@
   <div class="content-wrapper">
     {#if form?.success}
     <ToastSuccess/>
-
-      <small style="display: none;">{goto("/user/product/")}</small>
+    <small style="display: none;">{goto("/user/product/")}</small>
     {/if}
     <div class="row">
       <div class="col-xl">
@@ -134,35 +133,35 @@
                 <h5 style="text-align: center;" class="text-warning">لیست قیمتی کلاس A</h5>
                 <div class="col-4">
                   <label for="title">قیمت 16GB</label>
-                  <input type="text" class="form-control" id="title" name="cAG16B" value="{ product.cAG16B }"/>
+                  <input type="number" class="form-control" id="title" name="cAG16B" value="{ product.cAG16B }"/>
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 32</label>
-                  <input type="text" class="form-control" id="title" name="cAG32B" value="{ product.cAG32B }" />
+                  <input type="number" class="form-control" id="title" name="cAG32B" value="{ product.cAG32B }" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 64</label>
-                  <input type="text" class="form-control" id="title" name="cAG64B" value="{ product.cAG64B }" />
+                  <input type="number" class="form-control" id="title" name="cAG64B" value="{ product.cAG64B }" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 128</label>
-                  <input type="text" class="form-control" id="title" name="cAG128B" value="{product.cAG128B}" />
+                  <input type="number" class="form-control" id="title" name="cAG128B" value="{product.cAG128B}" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 256</label>
-                  <input type="text" class="form-control" id="title" name="cAG256B" value="{product.cAG256B}" />
+                  <input type="number" class="form-control" id="title" name="cAG256B" value="{product.cAG256B}" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 512</label>
-                  <input type="text" class="form-control" id="title" name="cAG512B" value="{product.cAG512B}"  />
+                  <input type="number" class="form-control" id="title" name="cAG512B" value="{product.cAG512B}"  />
                 </div>
                 <div class="col-6">
                   <label for="title">قیمت 1TB</label>
-                  <input type="text" class="form-control" id="title" name="cAT1B" value="{product.cAT1B}"  />
+                  <input type="number" class="form-control" id="title" name="cAT1B" value="{product.cAT1B}"  />
                 </div>
                 <div class="col-6">
                   <label for="title">قیمت 2TB</label>
-                  <input type="text" class="form-control" id="title" name="cAT2B" value="{product.cAT2B}"  />
+                  <input type="number" class="form-control" id="title" name="cAT2B" value="{product.cAT2B}"  />
                 </div>
               </div>
                 
@@ -170,35 +169,35 @@
                 <h5 style="text-align: center;" class="text-warning">لیست قیمتی کلاس B</h5>
                 <div class="col-4">
                   <label for="title">قیمت 16GB</label>
-                  <input type="text" class="form-control" id="title" name="cBG16B" value="{ product.cBG16B }"/>
+                  <input type="number" class="form-control" id="title" name="cBG16B" value="{ product.cBG16B }"/>
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 32</label>
-                  <input type="text" class="form-control" id="title" name="cBG32B" value="{ product.cBG32B }" />
+                  <input type="number" class="form-control" id="title" name="cBG32B" value="{ product.cBG32B }" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 64</label>
-                  <input type="text" class="form-control" id="title" name="cBG64B" value="{ product.cBG64B }" />
+                  <input type="number" class="form-control" id="title" name="cBG64B" value="{ product.cBG64B }" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 128</label>
-                  <input type="text" class="form-control" id="title" name="cBG128B" value="{product.cBG128B}" />
+                  <input type="number" class="form-control" id="title" name="cBG128B" value="{product.cBG128B}" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 256</label>
-                  <input type="text" class="form-control" id="title" name="cBG256B" value="{product.cBG256B}" />
+                  <input type="number" class="form-control" id="title" name="cBG256B" value="{product.cBG256B}" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 512</label>
-                  <input type="text" class="form-control" id="title" name="cBG512B" value="{product.cBG512B}"  />
+                  <input type="number" class="form-control" id="title" name="cBG512B" value="{product.cBG512B}"  />
                 </div>
                 <div class="col-6">
                   <label for="title">قیمت 1TB</label>
-                  <input type="text" class="form-control" id="title" name="cBT1B" value="{product.cBT1B}"  />
+                  <input type="number" class="form-control" id="title" name="cBT1B" value="{product.cBT1B}"  />
                 </div>
                 <div class="col-6">
                   <label for="title">قیمت 2TB</label>
-                  <input type="text" class="form-control" id="title" name="cBT2B" value="{product.cBT2B}"  />
+                  <input type="number" class="form-control" id="title" name="cBT2B" value="{product.cBT2B}"  />
                 </div>
               </div>
                 
@@ -206,35 +205,35 @@
                 <h5 style="text-align: center;" class="text-warning">لیست قیمتی کلاس C</h5>
                 <div class="col-4">
                   <label for="title">قیمت 16GB</label>
-                  <input type="text" class="form-control" id="title" name="cCG16B" value="{ product.cCG16B }"/>
+                  <input type="number" class="form-control" id="title" name="cCG16B" value="{ product.cCG16B }"/>
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 32</label>
-                  <input type="text" class="form-control" id="title" name="cCG32B" value="{ product.cCG32B }" />
+                  <input type="number" class="form-control" id="title" name="cCG32B" value="{ product.cCG32B }" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 64</label>
-                  <input type="text" class="form-control" id="title" name="cCG64B" value="{ product.cCG64B }" />
+                  <input type="number" class="form-control" id="title" name="cCG64B" value="{ product.cCG64B }" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 128</label>
-                  <input type="text" class="form-control" id="title" name="cCG128B" value="{product.cCG128B}" />
+                  <input type="number" class="form-control" id="title" name="cCG128B" value="{product.cCG128B}" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 256</label>
-                  <input type="text" class="form-control" id="title" name="cCG256B" value="{product.cCG256B}" />
+                  <input type="number" class="form-control" id="title" name="cCG256B" value="{product.cCG256B}" />
                 </div>
                 <div class="col-4">
                   <label for="title">قیمت 512</label>
-                  <input type="text" class="form-control" id="title" name="cCG512B" value="{product.cCG512B}"  />
+                  <input type="number" class="form-control" id="title" name="cCG512B" value="{product.cCG512B}"  />
                 </div>
                 <div class="col-6">
                   <label for="title">قیمت 1TB</label>
-                  <input type="text" class="form-control" id="title" name="cCT1B" value="{product.cCT1B}"  />
+                  <input type="number" class="form-control" id="title" name="cCT1B" value="{product.cCT1B}"  />
                 </div>
                 <div class="col-6">
                   <label for="title">قیمت 2TB</label>
-                  <input type="text" class="form-control" id="title" name="cCT2B" value="{product.cCT2B}"  />
+                  <input type="number" class="form-control" id="title" name="cCT2B" value="{product.cCT2B}"  />
                 </div>
               </div>
                 
@@ -243,35 +242,35 @@
 
                 <div class="col-4">
                   <label for="title">موجودی 16GB</label>
-                  <input type="text" class="form-control" id="title" name="mG16B" value="{ product.mG16B }"/>
+                  <input type="number" class="form-control" id="title" name="mG16B" value="{ product.mG16B }"/>
                 </div>
                 <div class="col-4">
                   <label for="title">موجودی 32</label>
-                  <input type="text" class="form-control" id="title" name="mG32B" value="{ product.mG32B }" />
+                  <input type="number" class="form-control" id="title" name="mG32B" value="{ product.mG32B }" />
                 </div>
                 <div class="col-4">
                   <label for="title">موجودی 64</label>
-                  <input type="text" class="form-control" id="title" name="mG64B" value="{ product.mG64B }" />
+                  <input type="number" class="form-control" id="title" name="mG64B" value="{ product.mG64B }" />
                 </div>
                 <div class="col-4">
                   <label for="title">موجودی 128</label>
-                  <input type="text" class="form-control" id="title" name="mG128B" value="{product.mG128B}" />
+                  <input type="number" class="form-control" id="title" name="mG128B" value="{product.mG128B}" />
                 </div>
                 <div class="col-4">
                   <label for="title">موجودی 256</label>
-                  <input type="text" class="form-control" id="title" name="mG256B" value="{product.mG256B}" />
+                  <input type="number" class="form-control" id="title" name="mG256B" value="{product.mG256B}" />
                 </div>
                 <div class="col-4">
                   <label for="title">موجودی 512</label>
-                  <input type="text" class="form-control" id="title" name="mG512B" value="{product.mG512B}"  />
+                  <input type="number" class="form-control" id="title" name="mG512B" value="{product.mG512B}"  />
                 </div>
                 <div class="col-6">
                   <label for="title">موجودی 1TB</label>
-                  <input type="text" class="form-control" id="title" name="mT1B" value="{product.mT1B}"  />
+                  <input type="number" class="form-control" id="title" name="mT1B" value="{product.mT1B}"  />
                 </div>
                 <div class="col-6">
                   <label for="title">موجودی 2TB</label>
-                  <input type="text" class="form-control" id="title" name="mT2B" value="{product.mT2B}"  />
+                  <input type="number" class="form-control" id="title" name="mT2B" value="{product.mT2B}"  />
                 </div>
               </div>
                 
@@ -447,7 +446,7 @@
               {/if}
                 <div class="form-group mb-4">
                   <button type="submit" class="btn btn-success">بروزرسانی</button>
-                  <a href="/product" type="submit" class="btn btn-primary">برگشت</a>
+                  <a href="/user/product" type="submit" class="btn btn-primary">برگشت</a>
                 </div>
 
                 

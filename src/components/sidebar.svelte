@@ -2,7 +2,17 @@
 	import { page } from '$app/stores';
   const client = $page.data.client
 </script>
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+<style>
+  @media print
+{    
+  
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+</style>
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme no-print">
   <div class="app-brand demo">
     <a href="/" class="app-brand-link">
       <span class="app-brand-logo demo">    
@@ -11,7 +21,7 @@
     </a>
 
     <!-- svelte-ignore a11y-invalid-attribute -->
-    <a href="#" class="layout-menu-toggle menu-link text-large ms-auto">
+    <a href="#" class="layout-menu-toggle menu-link text-large ms-auto ">
       <i class="bx menu-toggle-icon d-none d-xl-block fs-4 align-middle"></i>
       <i class="bx bx-x d-block d-xl-none bx-sm align-middle"></i>
     </a>
@@ -38,7 +48,7 @@
     </li>
     {#if client.class == 'A' || client.class == 'B'|| client.parentProffesion == 'فروش'}
     <li class="menu-item">
-      <a data-sveltekit-preload-data="hover"  href="/user/chat" class="menu-link">
+      <a data-sveltekit-preload-data="hover"  href="/user/chat" class="menu-link" data-sveltekit-reload>
         <i class='menu-icon bx bx-message-rounded-dots' ></i>
         <div data-i18n="Raya Chat">رایاچت</div>
       </a>
@@ -51,9 +61,9 @@
       </a>
     </li>
     <li class="menu-item">
-      <a data-sveltekit-preload-data="hover" href="/user/callcontroller" class="menu-link" data-sveltekit-reload>
+      <a data-sveltekit-preload-data="hover" href="/user/callcontroller" class="menu-link text-light" data-sveltekit-reload>
         <i class='menu-icon bx bx-microphone' ></i>
-        <div data-i18n="Call Controller">کنترل تماس</div>
+        <div data-i18n="Call Controller">کنترل تماس <br>(غیر قابل دسترسی)</div>
       </a>
     </li>
     {/if}
@@ -65,7 +75,7 @@
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
-          <a href="/user/client/customer" class="menu-link">
+          <a data-sveltekit-preload-data="hover" href="/user/client/customer" class="menu-link">
             
             <div data-i18n="Customers">مشتریان</div>
           </a>
@@ -103,7 +113,7 @@
     {/if}
 
     <li class="menu-item">
-      <a href="/user/shareFolder" class="menu-link">
+      <a data-sveltekit-preload-data="hover"  href="/user/shareFolder" class="menu-link">
         <i class='menu-icon tf-icons bx bx-folder-open' ></i>
         <div data-i18n="Share Folder">پوشه اشتراک</div>
       </a>
@@ -112,7 +122,7 @@
     {/if}
     
     <li class="menu-item">
-      <a data-sveltekit-preload-data="hover" href="/" class="menu-link">
+      <a  data-sveltekit-preload-data="hover" href="/" class="menu-link">
         <i class='menu-icon tf-icons bx bx-exit' ></i>
         <div data-i18n="Exit">خروج</div>
       </a>

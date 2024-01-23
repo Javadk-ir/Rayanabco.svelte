@@ -57,7 +57,7 @@
                 <h5 class="mb-0">لطفا اطلاعات خواسته شده را تکمیل کنید</h5>
               </div>
               <div class="card-body">
-                <form id="formAuthentication" class="mb-3" action="?/upload" method="POST" use:enhance enctype='multipart/form-data'>\
+                <form id="formAuthentication" class="mb-3" action="?/upload" method="POST" use:enhance enctype='multipart/form-data'>
                     <div class="modal" id="searchincustomers" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
                           <div class="modal-content p-3 p-md-5">
@@ -84,7 +84,7 @@
                     <div class="input-group input-group-merge">
                       <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-regular fa-user"></i></span>
                       <!-- svelte-ignore a11y-missing-attribute -->
-                      <a data-bs-toggle="modal" data-bs-target="#searchincustomers" role="button"
+                      <a style="color: white;" data-bs-toggle="modal" data-bs-target="#searchincustomers" role="button"
                       class="btn btn-secondary shadow-0 d-inline-flex align-items-center justify-content-center tool">
                    ㅤانتخاب مشتری<i class="fa-solid fa-bars"></i>
                   </a>

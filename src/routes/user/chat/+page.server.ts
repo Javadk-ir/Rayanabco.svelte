@@ -8,8 +8,12 @@ export const load = (async (event: { locals: { client: any; }; }, params: any) =
         const users: any = await userModel.aggregate([{ $sort: { createdAt: -1 } }]).exec();
         const client: Object | any = event.locals.client
 
+        //chek if client joined any groups or not 
         const GroupChat: any = await chatModel.find({ chatroom: client.name, "GPname": {$exists:true}});
+
+        //chek if user visited page before or not 
         let chatroommessage : any = await chatModel.findOne({ chatroom: { $eq: [client.name, client.name] }});
+        //if user not visited page before send him temporary message by system
         if (chatroommessage == null) {
             chatroommessage = {
                 "message": [
@@ -21,6 +25,7 @@ export const load = (async (event: { locals: { client: any; }; }, params: any) =
                     }
                 ]
             }
+            //then submit system message to db for next time user came to this page temporarily message dont be created
             const newchatmesssage = new chatModel({
                 chatroom: [client.name, client.name],
                 "message": [
@@ -33,6 +38,7 @@ export const load = (async (event: { locals: { client: any; }; }, params: any) =
                 ]
 
             });
+            //created
             await chatModel.create(newchatmesssage);
 
         }
@@ -59,8 +65,9 @@ export const actions = {
             const data: any = await request.formData();
             const client: any = locals.client
 
-
-            let chatroommessage: any = await chatModel.findOne({ $or: [{ chatroom: { $eq: [client.name, client.name] } }, { chatroom: { $eq: [client.name, client.name] } }] });
+            //get user save message pv from DB
+            let chatroommessage: any = await chatModel.findOne({ $or: [{ chatroom: { $eq: [client.name, client.name] } }] });
+            //if save message not founded it should create new one for him
             if (chatroommessage == null) {
                 const newchatmesssage = new chatModel({
                     chatroom: [client, client.name],
@@ -74,10 +81,12 @@ export const actions = {
                     ]
 
                 });
+                //created
                 await chatModel.create(newchatmesssage);
 
             } else {
-                await chatModel.findOneAndUpdate({ $or: [{ chatroom: { $eq: [client.name, client.name] } }, { chatroom: { $eq: [client.name, client.name] } }] },
+            //find save message and push new message
+                await chatModel.findOneAndUpdate({ $or: [{ chatroom: { $eq: [client.name, client.name] } }] },
                     {
                         $push: {
                             "message": [

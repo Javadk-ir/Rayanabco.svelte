@@ -124,13 +124,13 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-4">
-                                                <a href="/user/shop/" class="btn  btn-lg btn-success" data-sveltekit-preload-data="hover" data-sveltekit-reload>کلاس قیمتی C</a>
+                                                <a href="/user/shop/order/addclassorder/class-c/" class="btn  btn-lg btn-success" data-sveltekit-preload-data="hover" data-sveltekit-reload>کلاس قیمتی C</a>
                                             </div>
                                             <div class="col-4">
-                                                <a href="/user/shop/" class="btn  btn-lg btn-warning" data-sveltekit-preload-data="hover" data-sveltekit-reload>کلاس قیمتی B </a>
+                                                <a href="/user/shop/order/addclassorder/class-b/" class="btn  btn-lg btn-warning" data-sveltekit-preload-data="hover" data-sveltekit-reload>کلاس قیمتی B </a>
                                             </div>
                                             <div class="col-4">
-                                                <a href="/user/shop/" class="btn  btn-lg btn-danger" data-sveltekit-preload-data="hover" data-sveltekit-reload>کلاس قیمتی A </a>
+                                                <a href="/user/shop/order/addclassorder/class-a/" class="btn  btn-lg btn-danger" data-sveltekit-preload-data="hover" data-sveltekit-reload>کلاس قیمتی A </a>
                                             </div>
                                         </div>
                                       </div>
@@ -281,6 +281,7 @@
                           href="/user/shop"
                           class="btn btn-primary btn-sm btn-rounded">بررسی / مشاهده</a
                         >
+
                       </td>
                     </tr>
                   {/if}

@@ -13,8 +13,6 @@ import {blogModel} from '$lib/models/blogModel'
     
     }
 
-
-
     export const actions = {
         edit: async ({ cookies, request }) => {
         const data: any = await request.formData();

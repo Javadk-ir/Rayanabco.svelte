@@ -15,11 +15,11 @@ export const load = (async ({ params, locals }) => {
 
             let selectedChat = params.chatid
         const chatroom: any = await userModel.findOne({ name: selectedChat });
+        //chek if client joined any groups or not 
         const GroupChat: any = await chatModel.find({ chatroom: client.name, "GPname": {$exists:true}});
-
-
+        //chek if user visited page before or not 
         let chatroommessage: any = await chatModel.findOne({ $or: [{ chatroom: { $eq: [client.name, selectedChat] } }, { chatroom: { $eq: [selectedChat, client.name] } }] });
-
+        //if user not visited page before send him temporary message by system
 
         if (chatroommessage == null) {
             chatroommessage = {
@@ -32,6 +32,7 @@ export const load = (async ({ params, locals }) => {
                     }
                 ]
             }
+            //then submit system message to db for next time user came to this page temporarily message dont be created
             const newchatmesssage = new chatModel({
                 chatroom: [client.name, selectedChat],
                 "message": [
@@ -44,6 +45,8 @@ export const load = (async ({ params, locals }) => {
                 ]
 
             });
+                        //created
+
             await chatModel.create(newchatmesssage);
 
         }
@@ -72,6 +75,7 @@ export const actions = {
             const client: any = locals.client
 
             let selectedChat = params.chatid
+            //if  message not founded it should create new one for him
 
             let chatroommessage: any = await chatModel.findOne({ $or: [{ chatroom: { $eq: [client, selectedChat] } }, { chatroom: { $eq: [selectedChat, client] } }] });
             if (chatroommessage == null) {
@@ -90,6 +94,8 @@ export const actions = {
                 await chatModel.create(newchatmesssage);
 
             } else {
+            //find  message and push new message
+
                 await chatModel.findOneAndUpdate({ $or: [{ chatroom: { $eq: [client, selectedChat] } }, { chatroom: { $eq: [selectedChat, client] } }] },
                     {
                         $push: {

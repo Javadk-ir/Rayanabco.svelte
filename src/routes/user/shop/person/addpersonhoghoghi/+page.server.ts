@@ -8,8 +8,8 @@ export const actions = {
     upload: async ({ cookies, request }) => {
         //Get Form Data
         const data: any = await request.formData();
+        
         //Get images Data from Form
-
         const asasname = data.get('asasname')
         const agahitasis = data.get('agahitasis')
         const taqiratmondarej = data.get('taqiratmondarej')
