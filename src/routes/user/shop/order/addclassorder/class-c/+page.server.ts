@@ -41,7 +41,6 @@ export const actions = {
         }
     
         //i dont remember what the accutal fuck this function does here but its working so dont touch it
-
         function PLUS(obj: string | any[]) {
           let Multiplyer = []
           let finalObject = []
@@ -54,7 +53,7 @@ export const actions = {
         }
     
     
-        //get mahsolat and turn into string first then split string from , and turn it to array again
+        //get mahsolat and turn into string first then split string from , and turn it to array againaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         function ALLpricer(obj: string | any[]) {
           let finaler: number = 0
           for (let i = 0; i < obj.length; i++) {

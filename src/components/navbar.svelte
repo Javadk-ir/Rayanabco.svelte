@@ -42,7 +42,7 @@
                                               <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                   <div class="avatar">
-                                                    <img src="../../assets/img/avatars/1.png" alt="user" class="w-px-40 h-auto rounded-circle">
+                                                    <img src="https://rayanabcom.storage.iran.liara.space/assest/defualt-img.png" alt="user" class="w-px-40 h-auto rounded-circle">
                                                   </div>
                                                 </div>
                                                 <div class="flex-grow-1">

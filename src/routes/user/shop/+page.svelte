@@ -278,7 +278,7 @@
                       >
                       <td>
                         <a
-                          href="/user/shop"
+                          href="/user/shop/order/{element.ordernumber}"
                           class="btn btn-primary btn-sm btn-rounded">بررسی / مشاهده</a
                         >
 
