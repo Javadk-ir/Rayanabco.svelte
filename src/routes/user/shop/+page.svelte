@@ -4,7 +4,7 @@
   import { goto } from "$app/navigation";
   import ToastSuccess from "$com/successfulMessageModal.svelte";
   export let data: PageData;
-
+  export let form;
   $: ({ client, orderinfo } = data);
 </script>
 
@@ -24,13 +24,14 @@
     <div class="row">
       <!-- Marketing Campaigns -->
       <div class="col-xl-12">
-        <!-- {#if form?.success}
-          <ToastSuccess/>
-          {#if form?.url}
-          <small style="display: none;">{window.location.href = form?.url}</small>
-          {/if}
-          <small style="display: none;">{window.location.reload()}</small>
-          {/if} -->
+        {#if form?.success}
+        <ToastSuccess/>
+        {#if form?.url}
+        <small style="display: none;">{window.location.href = form?.url}</small>
+        {/if}
+        <small style="display: none;">{window.location.reload()}</small>
+    
+        {/if}
         <div class="card">
           <div class="card-body">
             <div class="row">
@@ -277,11 +278,32 @@
                         {/if}</td
                       >
                       <td>
-                        <a
-                          href="/user/shop/order/{element.ordernumber}"
-                          class="btn btn-primary btn-sm btn-rounded">بررسی / مشاهده</a
-                        >
-
+                        <div class="dropdown">
+                          <button
+                            class="btn p-0"
+                            type="button"
+                            id="action1"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="bx bx-dots-vertical-rounded"></i>
+                          </button>
+                          <!-- svelte-ignore a11y-click-events-have-key-events -->
+                          <div
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="action1">
+                            <a
+                            href="/user/shop/order/{element.ordernumber}"
+                            class="btn btn-primary  dropdown-item">بررسی</a>
+                            <!-- svelte-ignore a11y-no-static-element-interactions -->
+                            {#if element.nextstep == 'اتمام' || element.nextstep == 'رد شده'}
+                            <form id="formAuthentication"  action="?/baygani" method="POST" use:enhance >
+                              <input type="hidden" name="bayganiid" value="{element.ordernumber}">
+                              <button class="btn btn-light  dropdown-item"  type="submit">بایگانی</button>
+                            </form>
+                          {/if}
+                          </div>
+                        </div>
                       </td>
                     </tr>
                   {/if}

@@ -23,14 +23,14 @@ export const actions = {
         //Get Form Data
         const data: any = await request.formData();
         const ordernumberr: any = await orderNumberModel.findOne({ _id: "652266a6a8fba3ec6aea446f" });
-        const queyuser = data.get('name')
+        const queyuser = await data.get('name')
         let info: any = await orderModel.findOne({ name: queyuser });
 
         //Get images Data from Form
-        const pishfactor = data.get('pishfactor')
-        const pishfactor1 = data.get('pishfactor1')
-        const pishfactor2 = data.get('pishfactor2')
-        const pishfactor3 = data.get('pishfactor3')
+        const pishfactor = await data.get('pishfactor')
+        const pishfactor1 = await data.get('pishfactor1')
+        const pishfactor2 = await data.get('pishfactor2')
+        const pishfactor3 = await data.get('pishfactor3')
 
         //set defualt value for images name
         let pishfactorName: any, 
@@ -80,10 +80,10 @@ export const actions = {
           const newhogogh = new orderinfoModel({
             ordernumber: ordernumberr.number,
             submittedby : locals.client.name,
-            buyerinfo: data.get('buyerinfo'),
-            buyername: data.get('name'),
-            takhfif: data.get('takhfif'),
-            price: data.get('price'),
+            buyerinfo: await data.get('buyerinfo'),
+            buyername: await data.get('name'),
+            takhfif: await data.get('takhfif'),
+            price: await data.get('price'),
             phoneNumber: info.phoneNumber,
             name : info.name,
             user: info.email,

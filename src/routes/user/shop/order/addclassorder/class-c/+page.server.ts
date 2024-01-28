@@ -26,7 +26,7 @@ export const actions = {
     upload: async ({ cookies, request, locals }: any) => {
         const client = locals.client
         const data: any = await request.formData();
-        const id: any = data.get('name')
+        const id: any = await data.get('name')
         const ordernumberr: any = await orderNumberModel.findOne({ _id: "652266a6a8fba3ec6aea446f" });
 
         let info: any = await orderModel.findOne({ name: id });
@@ -87,9 +87,9 @@ export const actions = {
           pishfactor3: undefined,
           ordernumber: ordernumberr.number,
           submittedby : client.name,
-          buyerinfo: data.get('buyerinfo'),
-          buyername: data.get('name'),
-          takhfif: data.get('takhfif'),
+          buyerinfo: await data.get('buyerinfo'),
+          buyername: await data.get('name'),
+          takhfif: await data.get('takhfif'),
           price: Number(finalprice),
           phoneNumber: info.phoneNumber,
           name : info.name,

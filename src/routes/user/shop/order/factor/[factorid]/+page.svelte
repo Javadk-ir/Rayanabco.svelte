@@ -40,7 +40,7 @@ section {
 
 
 .maintable {
-  background-image: url(../img/output-onlinepngtools.png);
+  background-image: url(https://rayanabcom.storage.iran.liara.space/assest/output-onlinepngtools.png);
     background-blend-mode: lighten;
   background-blend-mode: lighten;
   background-size: auto 80%;

@@ -10,11 +10,11 @@ export const actions = {
         const data: any = await request.formData();
         
         //Get images Data from Form
-        const ejarename = data.get('ejarename')
-        const cartmeli = data.get('cartmeli')
-        const shenasname = data.get('shenasname')
-        const govvahimahzari = data.get('govvahimahzari')
-        const parvaneh = data.get('parvaneh')
+        const ejarename = await data.get('ejarename')
+        const cartmeli = await data.get('cartmeli')
+        const shenasname = await data.get('shenasname')
+        const govvahimahzari = await data.get('govvahimahzari')
+        const parvaneh = await data.get('parvaneh')
         //set defualt value for images name
         let ejarenameName: any, 
         cartmeliName: any , 
@@ -71,39 +71,39 @@ export const actions = {
           // new user values
           const newhogogh = new orderModel({
             type: 'haghighi',
-            user: data.get('name'),
-            userphoneNumber: data.get('phoneNumber'),
+            user: await data.get('name'),
+            userphoneNumber: await data.get('phoneNumber'),
             ejarename: ejarenameName,
             cartmeli: cartmeliName,
             shenasname: shenasnameName,
             govvahimahzari: govvahimahzariName,
             parvaneh: parvanehName,
       
-            info: data.get('info'),
+            info: await data.get('info'),
       
-            city: data.get('city'),
-            name: data.get('name'),
-            userID: data.get('userID'),
-            password: Cryptr.encrypt(data.get('password')),
-            email: data.get('email'),
+            city: await data.get('city'),
+            name: await data.get('name'),
+            userID: await data.get('userID'),
+            password: Cryptr.encrypt(await data.get('password')),
+            email: await data.get('email'),
             class: 'D',
-            shomareeghtesadi: data.get('shomareeghtesadi'),
-            cartmelineveshte: data.get('cartmelineveshte'),
-            phoneNumber: data.get('phoneNumber'),
+            shomareeghtesadi: await data.get('shomareeghtesadi'),
+            cartmelineveshte: await data.get('cartmelineveshte'),
+            phoneNumber: await data.get('phoneNumber'),
             childProffesion: 'مشتری',
             parentProffesion: 'مشتری',
             isvalidclient: 'true',
-            addressbar: data.get('addressbar'),
-            companyname: data.get('companyname'),
-            namecompany: data.get('namecompany'),
-            postcode: data.get('postcode'),
-            resphonenumber: data.get('resphonenumber'),
-            sentoption1: data.get('sentoption1'),
-            sentoptioncaption1: data.get('sentoptioncaption1'),
-            sentoption2: data.get('sentoption2'),
-            sentoptioncaption2: data.get('sentoptioncaption2'),
-            sentoption3: data.get('sentoption3'),
-            sentoptioncaption3: data.get('sentoptioncaption3'),
+            addressbar: await data.get('addressbar'),
+            companyname: await data.get('companyname'),
+            namecompany: await data.get('namecompany'),
+            postcode: await data.get('postcode'),
+            resphonenumber: await data.get('resphonenumber'),
+            sentoption1: await data.get('sentoption1'),
+            sentoptioncaption1: await data.get('sentoptioncaption1'),
+            sentoption2: await data.get('sentoption2'),
+            sentoptioncaption2: await data.get('sentoptioncaption2'),
+            sentoption3: await data.get('sentoption3'),
+            sentoptioncaption3: await data.get('sentoptioncaption3'),
       
           });
       

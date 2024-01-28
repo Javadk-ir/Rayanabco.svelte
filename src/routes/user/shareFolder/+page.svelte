@@ -161,7 +161,7 @@
                           <form id="formAuthentication" class="mb-3" action="?/download" method="POST" use:enhance >
                             <input type="hidden" name="ّFileToDownload" value="{file.filepath}">
                             <button class="dropdown-item"  type="submit">دانلود</button>
-                            </form>
+                          </form>
                 {#if file.filesentby == client.userID}
                 <form id="formAuthentication" class="mb-3" action="?/delete" method="POST" use:enhance >
                   <input type="hidden" name="FileToDelete" value="{file.filepath}">
