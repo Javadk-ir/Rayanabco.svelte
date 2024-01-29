@@ -33,7 +33,7 @@
     {#if form?.success}
     <ToastSuccess/>
     {#if form?.url}
-    <small style="display: none;">{window.location.href = form?.url}</small>
+    <small style="display: none;">{window.open(form?.url, "_blank")}</small>
     {/if}
     <small style="display: none;">{window.location.reload()}</small>
 
@@ -41,6 +41,8 @@
 
     <div class="row">
     {#if order.pishfactor != undefined}
+    {#if order.pishfactor != 'Orderinfo/ندارد'}
+
       <div class="col-2">
         <form action="?/download" method="POST" use:enhance>
           <input type="hidden" name="ّFileToDownload" value="{order.pishfactor}">
@@ -48,7 +50,11 @@
       </form>
       </div>
     {/if}
+    {/if}
+
     {#if order.pishfactor1 != undefined}
+    {#if order.pishfactor1 != 'Orderinfo/ندارد'}
+
       <div class="col-2">
         <form action="?/download" method="POST" use:enhance>
           <input type="hidden" name="FileToDownload" value="{order.pishfactor1}">
@@ -56,7 +62,11 @@
         </form>
       </div>
     {/if}
+    {/if}
+
     {#if order.pishfactor2 != undefined}
+    {#if order.pishfactor2 != 'Orderinfo/ندارد'}
+
       <div class="col-2">
         <form action="?/download" method="POST" use:enhance>
           <input type="hidden" name="FileToDownload" value="{order.pishfactor2}">
@@ -64,7 +74,11 @@
         </form>
       </div>
     {/if}
+    {/if}
+
     {#if order.pishfactor3 != undefined}
+    {#if order.pishfactor3 != 'Orderinfo/ندارد'}
+
       <div class="col-2">
         <form action="?/download" method="POST" use:enhance>
           <input type="hidden" name="FileToDownload" value="{order.pishfactor3}">
@@ -72,19 +86,27 @@
         </form>
       </div>
     {/if}
+    {/if}
+
 
 
     {#if order.nextstep=='انبار' || order.nextstep=='رهگیری' ||
     order.nextstep=='تحویل' || order.nextstep=='اتمام' }
     {#if order.factor != undefined}
+    {#if order.factor != 'Orderinfo/ندارد'}
+
+    
     <div class="col-2">
       <form action="?/download" method="POST" use:enhance>
         <input type="hidden" name="FileToDownload" value="{order.factor}">
       <button class="btn btn-success btn-sm">دانلود فاکتور</button>
       </form>
     </div>
-  {/if}
+    {/if}
+    {/if}
   {#if order.factor1 != undefined}
+  {#if order.factor1 != 'Orderinfo/ندارد'}
+
     <div class="col-2">
       <form action="?/download" method="POST" use:enhance>
         <input type="hidden" name="FileToDownload" value="{order.factor1}">
@@ -92,7 +114,10 @@
       </form>
     </div>
   {/if}
+  {/if}
   {#if order.factor2 != undefined}
+  {#if order.factor2 != 'Orderinfo/ندارد'}
+
     <div class="col-2">
       <form action="?/download" method="POST" use:enhance>
         <input type="hidden" name="FileToDownload" value="{order.factor2}">
@@ -100,7 +125,10 @@
       </form>
     </div>
   {/if}
+  {/if}
   {#if order.factor3 != undefined}
+  {#if order.factor3 != 'Orderinfo/ندارد'}
+
     <div class="col-2">
       <form action="?/download" method="POST" use:enhance>
         <input type="hidden" name="FileToDownload" value="{order.factor3}">
@@ -109,15 +137,21 @@
     </div>
   {/if}
   {/if}
+  {/if}
   {#if order.chek != undefined}
+  {#if order.chek != 'Orderinfo/ندارد'}
+
     <div class="col-2">
       <form action="?/download" method="POST" use:enhance>
         <input type="hidden" name="FileToDownload" value="{order.chek}">
       <button class="btn btn-success btn-sm">دانلود چک</button>
       </form>
     </div>
-  {/if}
+{/if}
+{/if}
   {#if order.havale != undefined}
+  {#if order.havale != 'Orderinfo/ندارد'}
+
   <div class="col-2">
     <form action="?/download" method="POST" use:enhance>
       <input type="hidden" name="FileToDownload" value="{order.havale}">
@@ -125,10 +159,14 @@
     </form>
   </div>
 {/if}
+{/if}
     </div>
     <!-- Create Deal Wizard -->
     <div id="wizard-create-deal" class="bs-stepper vertical mt-2">
-      {#if order.nextstep != 'رد شده' || order.nextstep == 'اتمام'}
+      {#if order.nextstep != 'رد شده'}
+      {#if order.nextstep != 'اتمام'}
+      {#if order.nextstep != "بایگانی"}
+
       <div class="bs-stepper-header">
         <!-- STEP 1: Order Placed -->
         {#if client.class == "A" || client.class == "B"}
@@ -287,15 +325,44 @@
         <!--/ STEP 7: Rahgiri-->
         <hr />
         <div class="step">
-          <form action="?/shopreject" method="POST" use:enhance>
-            <button class="btn btn-danger btn-lg col-12">لغو</button>
-          </form>
+          <button type="button" class="btn btn-danger btn-lg col-12" data-bs-toggle="modal" data-bs-target="#DeleteModalToggle">لغو</button>
+
+<!-- Delete Modal -->
+             <div class="modal fade" id="DeleteModalToggle" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+                  <div class="modal-content p-3 p-md-5">
+                    <div class="modal-body">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div class="text-center mb-4 mt-0 mt-md-n2">
+                        <h3 class="secondary-font text-warning"><i class="fa-solid fa-triangle-exclamation"></i></h3>
+                        <p>شما در حال لغو کردن سفارش {order.ordernumber} که توسط {order.submittedby} ثبت شده است و طرف حساب شخص {order.name} میباشد هستید</p>
+                      </div>
+                      <form id="DeleteModal" class="row " action="?/shopreject" method="POST" use:enhance>
+                        <label for="rejectreasson"> لطفا دلیل خود را برای لفو کردن سفارش بنویسید</label>
+                        <input type="text" name="rejectreasson" class="form-control" style="margin-bottom: 5%;" required>
+                        <div class="col-6 d-grid" style="text-align: left;">
+                            <a href="#close" class="btn btn-light" data-bs-dismiss="modal" aria-label="Close"> انصراف </a>
+                        </div>
+                        <input type="hidden" name="name" value="s">
+                        <div class="col-6 d-grid" style="text-align: right;" data-bs-toggle="modal" data-bs-target="#succesfulModal">
+                            <button type="submit" class="btn btn-danger"> لغو </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<!--/ Delete Modal -->
+
+
         </div>
       </div>
       
       {/if}
+      {/if}
+      {/if}
+
       <div class="bs-stepper-content">
-        '
         <div class="row">
           <!-- STEP 1: Order Placed -->
 
@@ -586,18 +653,26 @@
           <br>
             <h3 style="text-align: center;">اطلاعات مربوط را {order.userwhoupload} بارگذاری کرده است</h3>
             {#if order.havale != undefined}
+            {#if order.havale != 'Orderinfo/ندارد'}
+
           <form id="formAuthentication" class="mb-3" action="?/download" method="POST" use:enhance >
             <input type="hidden" name="ّFileToDownload" value="{order.havale}">
             <button class="dropdown-item btn btn-primary col-12" type="submit">دانلود حواله</button>
-            </form>
+          </form>
+        {/if}
         {/if}
 
+
         {#if order.chek != undefined}
+        {#if order.chek != 'Orderinfo/ندارد'}
+
         <form id="formAuthentication" class="mb-3" action="?/download" method="POST" use:enhance >
           <input type="hidden" name="ّFileToDownload" value="{order.chek}">
           <button class="dropdown-item btn btn-primary col-12" type="submit">دانلود چک</button>
           </form>
         {/if}
+        {/if}
+
         {#if order.havalebaz == 'بله'}
         <form
         action="?/download"
@@ -880,7 +955,7 @@
                         </div>
                       </div>
                     </div>
-                                        <div class="col-12" style="padding-top: 1%;">
+                    <div class="col-12" style="padding-top: 1%;">
                       <button
                         class="btn btn-primary col-12 btn-lg"
                         type="button"
@@ -936,7 +1011,10 @@
                 <h3 style="text-align: center;" class="text-success">سفارش {order.ordernumber} که توسط {order.submittedby} ثبت شده بود و طرف حساب {order.name} بود خوشبختانه با موفقیت تایید و ارسال شده!</h3>
                 {/if}
                 {#if order.nextstep == "رد شده"}
-                <h3 style="text-align: center;" class="text-danger">سفارش {order.ordernumber} که توسط {order.submittedby} ثبت شده بود متاسفانه توسط {order.bywho} -  {order.rejectby} رد شد</h3>
+                <h3 style="text-align: center;" class="text-danger">سفارش {order.ordernumber} که توسط {order.submittedby} ثبت شده بود متاسفانه توسط {order.bywho} -  {order.rejectby} رد شد <br> دلیل: {order.rejectreasson}</h3>
+                {/if}
+                {#if order.nextstep == "بایگانی"}
+                <h3 style="text-align: center;" class="text-warning">سفارش {order.ordernumber} که توسط {order.submittedby} ثبت شده بود بایگانی شده است</h3>
                 {/if}
                 <!--/ STEP 8: END -->
 

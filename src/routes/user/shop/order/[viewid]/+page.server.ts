@@ -27,7 +27,7 @@ export const actions = {
             nextstep: 'رد شده',
             bywho: client.name,
             rejectby: client.parentProffesion,
-    
+            rejectreasson: await data.get('rejectreasson'),
             rejectbydate: new Date()
           });
           return{success: true}

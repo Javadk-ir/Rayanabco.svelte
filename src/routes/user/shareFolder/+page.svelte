@@ -49,7 +49,7 @@
         {#if form?.success}
         <ToastSuccess/>
         {#if form?.url}
-        <small style="display: none;">{window.location.href = form?.url}</small>
+        <small style="display: none;">{window.open(form?.url, "_blank")}</small>
         {/if}
         <small style="display: none;">{window.location.reload()}</small>
         {/if}

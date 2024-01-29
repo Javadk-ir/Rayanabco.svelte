@@ -108,6 +108,11 @@ export const actions = {
       
           try {
             await orderinfoModel.create(newhogogh);
+            await orderNumberModel.findByIdAndUpdate("652266a6a8fba3ec6aea446f", {
+                $inc: {
+                  number: 1,
+                },
+              });
             console.log(newhogogh)
             return{success : true}
             

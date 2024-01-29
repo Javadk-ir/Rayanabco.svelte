@@ -113,14 +113,16 @@
 
                   <!-- User -->
                   <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                    <a class="nav-link dropdown-toggle hide-arrow" href="/user/setting" data-bs-toggle="dropdown">
+                    <!-- svelte-ignore a11y-invalid-attribute -->
+                    <a class="nav-link dropdown-toggle hide-arrow" href="#" data-bs-toggle="dropdown">
                       <div class="avatar avatar-online">
                         <img src="https://rayanabcom.storage.iran.liara.space/assest/defualt-img.png" alt="profileImage"  class="rounded-circle">
                       </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                       <li>
-                        <a class="dropdown-item" href="/user/setting">
+                        <!-- svelte-ignore a11y-invalid-attribute -->
+                        <a class="dropdown-item" href="#">
                           <div class="d-flex align-items-center">
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar avatar-online">

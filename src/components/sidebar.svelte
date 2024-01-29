@@ -14,7 +14,7 @@
 </style>
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme no-print">
   <div class="app-brand demo">
-    <a href="/" class="app-brand-link">
+    <a href="/user" class="app-brand-link">
       <span class="app-brand-logo demo">    
       </span>
       <span class="app-brand-text demo menu-text fw-bold ms-2">رایاناب</span>
@@ -41,11 +41,37 @@
     </li>
     {#if client.class != 'D'}
     <li class="menu-item">
-      <a data-sveltekit-preload-data="hover" href="/user/shop" class="menu-link">
+      <!-- svelte-ignore a11y-invalid-attribute -->
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class='menu-icon bx bx-store-alt'></i>
-        <div data-i18n="shop">سفارشات</div>
+        <div data-i18n="Users">سفارشات</div>
       </a>
-    </li>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a data-sveltekit-preload-data="hover" href="/user/shop" class="menu-link">
+            
+            <div data-i18n="Open Order">سفارشات باز</div>
+          </a>
+        </li>
+      </ul>
+    {#if client.class == 'A'}
+
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a data-sveltekit-preload-data="hover" href="/user/shop/archive" class="menu-link">
+           
+            <div data-i18n="archive">بایگانی</div>
+          </a>
+        </li>
+      </ul>
+    {/if}
+  </li>
+  <li class="menu-item">
+    <a data-sveltekit-preload-data="hover"  href="/user/requests" class="menu-link">
+      <i class="menu-icon fa-regular fa-hand-point-up"></i>
+      <div data-i18n="Raya Chat">درخواست ها</div>
+    </a>
+  </li>
     {#if client.class == 'A' || client.class == 'B'|| client.parentProffesion == 'فروش'}
     <li class="menu-item">
       <a data-sveltekit-preload-data="hover"  href="/user/chat" class="menu-link" data-sveltekit-reload>

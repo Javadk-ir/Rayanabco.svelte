@@ -69,6 +69,20 @@
                     <td>{users.userID}</td>
                     <td>{users.phoneNumber}</td>
                     <td>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                          ادرس پستی ‎‎
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="/user/shop/order/{users.name}/rasht/pish">ادرس رشت و پیش کرایه</a></li>
+                          <li><a class="dropdown-item" href="/user/shop/order/{users.name}/rasht/pas">ادرس رشت و پس کرایه</a></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="/user/shop/order/{users.name}/tehran/pas">ادرس تهران و پس کرایه</a></li>
+                          <li><a class="dropdown-item" href="/user/shop/order/{users.name}/tehran/pish">ادرس تهران و پیش کرایه</a></li>
+                        </ul>
+                      </div>
                         <a href="customer/edit/{users.name}" class="btn btn-warning"><i class='bx bx-pencil'></i></a>
                         <DeleteWarningButton id='a{Math.round(Math.random() * 1000000)}b' name="{users.name}"/></td>
                 </tr>

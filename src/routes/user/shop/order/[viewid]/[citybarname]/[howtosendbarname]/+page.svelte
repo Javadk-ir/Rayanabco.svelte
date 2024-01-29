@@ -108,7 +108,11 @@ table {
             </tr>
             <tr>
                 <td>
+                    {#if factor.addressbar}
+                    ادرس: {factor.addressbar}
+                    {:else}
                     ادرس: {factor.adressbar}
+                    {/if}
                 </td>
             </tr>
 
@@ -195,7 +199,11 @@ table {
             </tr>
             <tr>
                 <td>
+                    {#if factor.addressbar}
+                    ادرس: {factor.addressbar}
+                    {:else}
                     ادرس: {factor.adressbar}
+                    {/if}
                 </td>
             </tr>
 

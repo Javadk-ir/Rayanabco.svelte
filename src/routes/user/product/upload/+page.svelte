@@ -60,7 +60,7 @@
   {#if form?.success}
   <ToastSuccess/>
 
-    <small style="display: none;">{goto("/user/product/")}</small>
+    <small style="display: none;">{goto('/user/product/')}</small>
   {/if}
   <div class="row">
     <div class="col-xl">

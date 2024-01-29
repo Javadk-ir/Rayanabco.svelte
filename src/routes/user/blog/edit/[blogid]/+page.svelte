@@ -27,7 +27,7 @@
     {#if form?.success}
     <ToastSuccess/>
 
-      <small style="display: none;">{goto("/user/blog/")}</small>
+      <small style="display: none;">{goto('/user/blog/')}</small>
     {/if}
     <div class="row">
       <div class="col-xl">

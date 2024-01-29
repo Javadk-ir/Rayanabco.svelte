@@ -52,7 +52,7 @@
                         </h1>
                         <small class="d-block mb-3 lh-1-85"> {client.name}</small>
         
-                        <a href="/user/shop" class="btn btn-sm btn-primary">مشاهده فروش‌ها</a>
+                        <a href="https://old.rayanabco.ir" class="btn btn-sm btn-primary">بازگشت به ورژن قدیمی CRM</a>
                       </div>
                       <div class="col-6 text-center">
                         <img
