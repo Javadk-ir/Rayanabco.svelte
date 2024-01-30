@@ -102,7 +102,7 @@
         <div class="bs-stepper-content">
           <div class="row">
             {#if request.nextstep == 'سرپرست' }
-            {#if client.parentProffesion.includes('سرپرست') || client.parentProffesion.includes('مدیر') }
+            {#if client.parentProffesion.includes('سرپرست') || client.parentProffesion.includes('مدیر') || client.class == 'A' }
             <div class="col-12">
             <button
             class="btn btn-primary col-12 btn-sm"
@@ -145,7 +145,7 @@
             {/if}
 
             {#if request.nextstep == 'مسئول'}
-            {#if client.name == 'فاطمه خندانی'}
+            {#if client.name == 'فاطمه خندانی' || client.class == 'A'}
             <div class="col-12">
             <button
             class="btn btn-primary col-12 btn-sm"
@@ -213,7 +213,7 @@
             {/if}
             {/if}
             {#if request.nextstep == 'مدیر عامل'}
-            {#if client.parentProffesion == 'مدیرعامل'}
+            {#if client.parentProffesion == 'مدیرعامل' || client.class == 'A'}
             <div class="col-12">
             <button
             class="btn btn-primary col-12 btn-sm"

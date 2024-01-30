@@ -45,7 +45,7 @@
                 موفقیت امیز بود! درحال انتقال ...
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
-              <small style="display: none;">{goto('/user')}</small>
+              <small style="display: none;">{location.href = '/user'}</small>
               {/if}
               <div class="app-brand mb-4">
                 <a href="index.html" class="app-brand-link gap-2 mb-2">
