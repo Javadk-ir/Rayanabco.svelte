@@ -14,7 +14,7 @@ export const load = (async (event) => {
 
 
 export const actions = {
-    download: async ({ cookies, request }) => {
+    download: async ({ cookies: any, request }) => {
         //Get Form Data
         const data: any = await request.formData();
         //download From Cloud Storage

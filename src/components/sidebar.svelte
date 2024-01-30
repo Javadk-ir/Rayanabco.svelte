@@ -58,7 +58,7 @@
 
       <ul class="menu-sub">
         <li class="menu-item">
-          <a data-sveltekit-preload-data="hover" href="/user/shop/archive" class="menu-link">
+          <a data-sveltekit-preload-data="hover" href="/user/shop/archivee" class="menu-link">
            
             <div data-i18n="archive">بایگانی</div>
           </a>
