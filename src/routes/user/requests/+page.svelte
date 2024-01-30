@@ -130,12 +130,18 @@
                     {/if}
                     </td>
                     <td>
+                      {#if requests.nextstep != 'اتمام'}
                     <span id="badgeinfo" class="badge bg-info me-1">
                         درحال بررسی {requests.nextstep}
                     </span>
+                  {:else}
+                  <span id="badgeinfo" class="badge bg-success me-1">
+                    موافقت گردید
+                  </span>
+                    {/if}
                     </td>
                     <td>
-                        <a href="/user/requests/view/{requests.reqnumber}" class="btn btn-warning btn-sm">بررسی / مشاهده</a>
+                      <a href="/user/requests/view/{requests.reqnumber}" class="btn btn-warning btn-sm">بررسی / مشاهده</a>
                 </tr>
                 {/if}
             {/each}

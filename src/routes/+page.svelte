@@ -48,7 +48,8 @@
               <small style="display: none;">{location.href = '/user'}</small>
               {/if}
               <div class="app-brand mb-4">
-                <a href="index.html" class="app-brand-link gap-2 mb-2">
+                <!-- svelte-ignore a11y-invalid-attribute -->
+                <a href="#" class="app-brand-link gap-2 mb-2">
                   <span class="app-brand-logo demo">
                   <img src="https://cdn.jsdelivr.net/gh/3exyDevil/Website-Files@main/assets/img/favicdon.ico" class="img-fluid" alt="رایاناب">
                   </span>
@@ -71,7 +72,7 @@
 
                   </div>
                   <div class="input-group input-group-merge">
-                    <input type="password" id="password" class="form-control text-start" name="password" placeholder="············" aria-describedby="password" dir="ltr">
+                    <input type="password" id="password" class="form-control text-start" name="password" placeholder="********" aria-describedby="password" dir="ltr">
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>

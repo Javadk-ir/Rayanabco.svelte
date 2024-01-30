@@ -1,9 +1,6 @@
 <script lang="ts">
     import { page } from '$app/stores';
 </script>
-
-
-
     <!-- Error -->
     <div class="container-xxl container-p-y" style="text-align: center;">
         <div class="misc-wrapper">
@@ -12,5 +9,5 @@
           <p class="mb-4 mx-2">نمیدونم چرا با این مشکل رو به رو هستید! <br>پیشنهاد میکنم سریعتر مشکل رو به پشتیبانیم گزارش بده تا رفع بشه </p>
           <a href="/user" class="btn btn-primary">بازگشت به خانه</a>
         </div>
-      </div>
-      <!-- /Error -->
+    </div>
+    <!-- /Error -->
