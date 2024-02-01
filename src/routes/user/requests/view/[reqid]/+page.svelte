@@ -122,10 +122,14 @@
               <span class="lh-2">
                 {request.caption}<br>
                 {#if request.type == "مرخصی - ساعتی" || request.type == "مرخصی - روزانه"}
+                {#if request.date}
+                {request.date}
+                {:else}
                 تاریخ شروع: 
-              {request.startdate}<br>
-              تاریخ پایان: 
-              {request.enddate}<br>
+                {request.startdate}<br>
+                تاریخ پایان: 
+                {request.enddate}<br>
+                {/if}
                 {/if}
               </span>
             </div>

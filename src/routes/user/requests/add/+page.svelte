@@ -3,6 +3,7 @@
     import {enhance} from '$app/forms';
     import { goto } from '$app/navigation';
     import ToastSuccess from '$com/successfulMessageModal.svelte'
+    import { onMount } from 'svelte';
 
 
     export let form;
@@ -29,9 +30,12 @@
 
     let value: any, formattedValue: any;
 
-    const options = {
+    const options: any = {
         enableTime: true,
-        locale: Persian
+        locale: Persian,
+        maxDate: "1402-12-31 00:00",
+        mode: "range"
+
     };
 
 
@@ -43,6 +47,13 @@
     function handleSubmit(event: { preventDefault: () => void; target: { elements: { [x: string]: { value: any; }; }; }; }) {
         event.preventDefault();
     }
+
+    onMount((): any => {
+      let x =document.querySelector('.flatpickr-input')as any
+      x.classList.add('form-control') as any
+		});
+
+
 </script>
 
 
@@ -57,7 +68,7 @@
               <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">لطفا اطلاعات خواسته شده را تکمیل کنید</h5>
 
-                <Flatpickr {options} bind:value bind:formattedValue name="date" />
+               
 
               </div>
               <div class="card-body">
@@ -78,21 +89,14 @@
                       </div>
                       <div class="mb-3" id="morekhasi" style="display: none;" >
                         <div class="row">
-                            <div class="col-4">
-                                <label class="form-label" for="basic-icon-default-company">روز و ساعت شروع</label>
+                            <div class="col-6">
+                                <label class="form-label" for="basic-icon-default-company">روز و ساعت مدت مرخصی</label>
                                 <div class="input-group input-group-merge">
                                     <span id="basic-icon-default-company2" class="input-group-text"><i class="fa-regular fa-calendar-plus"></i></span>
-                                    <input type="text" class="form-control" placeholder="یکشنبه 1402/10/8 ساعت 09:00" name="morekhasistart">
+                                    <Flatpickr {options} bind:value bind:formattedValue name="date" />
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <label class="form-label" for="basic-icon-default-company">روز و ساعت پایان</label>
-                                <div class="input-group input-group-merge">
-                                    <span id="basic-icon-default-company2" class="input-group-text"><i class="fa-regular fa-calendar-minus"></i></span>
-                                    <input type="text" class="form-control" placeholder="دوشنبه 1402/10/9 ساعت 09:00" name="morekhasiend">
-                                </div>
-                            </div>
-                            <div class="col-4">
+                            <div class="col-6">
                               <label class="form-label" for="basic-icon-default-company">نوع درخواست</label>
                               <div class="input-group input-group-merge">
                                   <span id="basic-icon-default-company2" class="input-group-text"><i class="fa-solid fa-list"></i></span>

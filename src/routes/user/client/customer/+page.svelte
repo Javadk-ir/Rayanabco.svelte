@@ -83,8 +83,12 @@
                           <li><a class="dropdown-item" href="/user/shop/order/{users.name}/tehran/pish">ادرس تهران و پیش کرایه</a></li>
                         </ul>
                       </div>
+                      {#if client.parentProffesion != 'انبار'}
                         <a href="customer/edit/{users.name}" class="btn btn-warning"><i class='bx bx-pencil'></i></a>
-                        <DeleteWarningButton id='a{Math.round(Math.random() * 1000000)}b' name="{users.name}"/></td>
+                        <DeleteWarningButton id='a{Math.round(Math.random() * 1000000)}b' name="{users.name}"/>
+                      {/if}
+
+                    </td>
                 </tr>
             {/each}
             <SuccessfuleModal/>

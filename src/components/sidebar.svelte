@@ -67,11 +67,82 @@
     {/if}
   </li>
   <li class="menu-item">
-    <a data-sveltekit-preload-data="hover"  href="/user/requests" class="menu-link">
-      <i class="menu-icon fa-regular fa-hand-point-up"></i>
-      <div data-i18n="Raya Chat">درخواست ها</div>
+    <!-- svelte-ignore a11y-invalid-attribute -->
+    <a href="javascript:void(0);" class="menu-link menu-toggle">
+      <i class='menu-icon bx bx-user'></i>
+      <div data-i18n="Users">کاربران</div>
     </a>
+    <ul class="menu-sub">
+      <li class="menu-item">
+        <a data-sveltekit-preload-data="hover" href="/user/client/customer" class="menu-link">
+          
+          <div data-i18n="Customers">مشتریان</div>
+        </a>
+      </li>
+    </ul>
+  {#if client.class == 'A'}
+
+    <ul class="menu-sub">
+      <li class="menu-item">
+        <a data-sveltekit-preload-data="hover" href="/user/client/employe" class="menu-link">
+         
+          <div data-i18n="employes">کارکنان</div>
+        </a>
+      </li>
+    </ul>
+  {/if}
+
   </li>
+  
+  {#if client.class == 'A' || client.class == 'B'|| client.parentProffesion == 'انبار'}
+  <li class="menu-item">
+    <!-- svelte-ignore a11y-invalid-attribute -->
+    <a href="javascript:void(0);" class="menu-link menu-toggle">
+      <i class=" menu-icon fa-regular fa-building"></i>
+      <div data-i18n="Users">
+        واحد فنی
+        <span id="badgeinfo" class="badge bg-danger me-1">
+          جدید !
+        </span>
+      </div>
+    </a>
+    <ul class="menu-sub">
+      <li class="menu-item">
+        <a data-sveltekit-preload-data="hover" href="/user/technical/requestunit" class="menu-link">
+         
+          <div data-i18n="Request product">درخواست کالا</div>
+        </a>
+      </li>
+    </ul>
+  <ul class="menu-sub">
+    <li class="menu-item">
+      <a data-sveltekit-preload-data="hover" href="/user/product" class="menu-link">
+        <div data-i18n="Products">محصولات</div>
+      </a>
+    </li>
+  </ul>
+  <ul class="menu-sub">
+    <li class="menu-item">
+      <a data-sveltekit-preload-data="hover" href="/user/shop" class="menu-link text-light">
+        
+        <div data-i18n="Paziresh">پذیرش (بزودی)</div>
+      </a>
+    </li>
+  </ul>
+
+</li>
+{/if}
+<li class="menu-item">
+  <a data-sveltekit-preload-data="hover"  href="/user/requests" class="menu-link">
+    <i class="menu-icon fa-regular fa-hand-point-up"></i>
+    <div data-i18n="Raya Chat">
+      درخواست ها
+      <span id="badgeinfo" class="badge bg-danger me-1">
+        جدید !
+      </span>
+    </div>
+  </a>
+</li>
     {#if client.class == 'A' || client.class == 'B'|| client.parentProffesion == 'فروش'}
     <li class="menu-item">
       <a data-sveltekit-preload-data="hover"  href="/user/chat" class="menu-link" data-sveltekit-reload>
@@ -79,11 +150,33 @@
         <div data-i18n="Raya Chat">رایاچت</div>
       </a>
     </li>
+
+
+    {/if}
+
+
+
+    {#if client.class == 'A' || client.class == 'B'}
+    <li class="menu-item">
+      <a data-sveltekit-preload-data="hover" href="/user/blog" class="menu-link">
+        <i class='menu-icon bx bx-rss' ></i>
+        <div data-i18n="blog">بلاگ</div>
+      </a>
+    </li>
+    {/if}
+
+
+    <li class="menu-item">
+      <a data-sveltekit-preload-data="hover"  href="/user/shareFolder" class="menu-link">
+        <i class='menu-icon tf-icons bx bx-folder-open' ></i>
+        <div data-i18n="Share Folder">پوشه اشتراک</div>
+      </a>
+    </li>
     {#if client.class == 'A'}
     <li class="menu-item" >
       <a data-sveltekit-preload-data="hover" href="/user/callcenter" class="menu-link text-light">
         <i class='menu-icon bx bx-headphone'></i>
-        <div data-i18n="Call Controller">سرنخ (در دست ساخت)</div>
+        <div data-i18n="Call Controller">سرنخ (بزودی)</div>
       </a>
     </li>
     <li class="menu-item">
@@ -93,57 +186,6 @@
       </a>
     </li>
     {/if}
-    <li class="menu-item">
-      <!-- svelte-ignore a11y-invalid-attribute -->
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class='menu-icon bx bx-user'></i>
-        <div data-i18n="Users">کاربران</div>
-      </a>
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a data-sveltekit-preload-data="hover" href="/user/client/customer" class="menu-link">
-            
-            <div data-i18n="Customers">مشتریان</div>
-          </a>
-        </li>
-      </ul>
-    {#if client.class == 'A'}
-
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a data-sveltekit-preload-data="hover" href="/user/client/employe" class="menu-link">
-           
-            <div data-i18n="employes">کارکنان</div>
-          </a>
-        </li>
-      </ul>
-    {/if}
-
-    </li>
-    {/if}
-    {#if client.class == 'A' || client.class == 'B'}
-    <li class="menu-item">
-      <a data-sveltekit-preload-data="hover" href="/user/blog" class="menu-link">
-        <i class='menu-icon bx bx-rss' ></i>
-        <div data-i18n="blog">بلاگ</div>
-      </a>
-    </li>
-    {/if}
-    {#if client.class == 'A' || client.class == 'B'|| client.parentProffesion == 'انبار'}
-    <li class="menu-item">
-      <a data-sveltekit-preload-data="hover" href="/user/product" class="menu-link">
-        <i class='menu-icon bx bx-purchase-tag-alt'></i>
-        <div data-i18n="Products">محصولات</div>
-      </a>
-    </li>
-    {/if}
-
-    <li class="menu-item">
-      <a data-sveltekit-preload-data="hover"  href="/user/shareFolder" class="menu-link">
-        <i class='menu-icon tf-icons bx bx-folder-open' ></i>
-        <div data-i18n="Share Folder">پوشه اشتراک</div>
-      </a>
-    </li>
     <hr>
     {/if}
     

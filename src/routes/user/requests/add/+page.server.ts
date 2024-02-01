@@ -18,7 +18,7 @@ export const actions = {
         //Get Form Data
         const data: any = await request.formData();
         const client:any = locals.client
-
+        
         const reqnumbere: any = await envelopeNumberModel.findOne({ _id: "64d4870e4e36481cd858e835" });
 
         let start = await data.get('morekhasistart')
@@ -38,8 +38,7 @@ export const actions = {
             bywho: client.name,
             bywhochildprofession: client.childProffesion,
             bywhoparentprofession: client.parentProffesion,
-            startdate: start,
-            enddate: end,
+            date: data.get('date'),
             priority: await data.get('priority'),
         });
 

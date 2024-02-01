@@ -18,7 +18,6 @@
       let col1 = document.createElement('div')
       col1.classList.add('col-6');
       col1.innerHTML = ' <input style="border: 1px solid #d3d3d3;" placeholder="(اضافه شد !)" type="text" class="form-control" id="tags" name="tags" value="" placeholder="..."/>';
-
       col1.style.marginTop = "10px";
 
       name.appendChild(col1);
