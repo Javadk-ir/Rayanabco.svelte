@@ -152,7 +152,19 @@
 
     {/if}
 
-
+    {#if client.class == 'A' || client.class == 'B'}
+    <li class="menu-item" >
+      <a data-sveltekit-preload-data="hover" href="/user/announce" class="menu-link">
+        <i class="menu-icon fa-solid fa-bullhorn"></i>
+        <div data-i18n="Call Controller">
+          اعلان
+          <span id="badgeinfo" class="badge bg-danger me-1">
+            جدید !
+          </span>
+        </div>
+      </a>
+    </li>
+    {/if}
 
     {#if client.class == 'A' || client.class == 'B'}
     <li class="menu-item">
