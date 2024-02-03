@@ -88,15 +88,33 @@
           <table class="datatables-users table border-top">
             <thead>
               <tr>
-                <th>نام</th>
-                <th>نقش</th>
-                <th>نام کاربری</th>
-                <th>شماره تلفن</th>
+                <th>از شهر</th>
+                <th>به شهر</th>
+                <th>توسط</th>
+                <th>تاریخ ثبت</th>
                 <th>عمل‌ها</th>
               </tr>
             </thead>
             <tbody>
-
+              {#each units as unit}
+              <tr>
+                  <td>
+                  {unit.fromwehre}
+                </td>
+                <td>
+                  {unit.towhere}
+                </td>
+                <td>
+                  {unit.bywho}
+                </td>
+                <td>
+                  {unit.createdAt}
+                </td>
+                <td>
+                  <a href="requestunit/view/{unit.number}" class="btn btn-primary btn-sm">مشاهده بازدید</a>
+                </td>
+              </tr>
+              {/each}
             </tbody>
           </table>
         </div>

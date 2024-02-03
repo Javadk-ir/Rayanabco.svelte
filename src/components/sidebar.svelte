@@ -137,9 +137,7 @@
     <i class="menu-icon fa-regular fa-hand-point-up"></i>
     <div data-i18n="Raya Chat">
       درخواست ها
-      <span id="badgeinfo" class="badge bg-danger me-1">
-        جدید !
-      </span>
+
     </div>
   </a>
 </li>

@@ -9,9 +9,14 @@ const requnitsSchema = new Schema({
     caption: { type: String },
     caption2: { type: String },
     caption2Image: { type: String },
-    units: { type: String },
+    units: { type: Array },
+    nextstep: { type: String },
+    number: { type: String },
+    info1: { type: String },
 
-
+    rejectreasson: { type: String },
+    rejector: { type: String },
+    rejectbydate: { type: String },
 
 
 
@@ -32,4 +37,4 @@ const requnitsSchema = new Schema({
     },
   });
 
-export const requnits = model("requnits", requnitsSchema)
+export const requnitsModel = model("requnits", requnitsSchema)

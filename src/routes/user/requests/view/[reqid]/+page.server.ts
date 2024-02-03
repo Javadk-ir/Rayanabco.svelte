@@ -9,6 +9,19 @@ export const load = (async ({params, locals}) => {
 
 
 export const actions = {
+    shopreject: async ({ cookies, request, locals, params }: any) => {
+        const data: any = await request.formData();
+        const client: any = locals.client
+        const id = params.reqid
+
+        await requestsModel.findOneAndUpdate({reqnumber: id}, {
+            nextstep: 'رد شده',
+            rejector: client.name,
+            rejectreasson: await data.get('rejectreasson'),
+            rejectbydate: new Date()
+          });
+          return{success: true}
+    },
     sarparastaccept: async ({ cookies, request, locals, params }: any) => {
         const data: any = await request.formData();
         const client: any = locals.client

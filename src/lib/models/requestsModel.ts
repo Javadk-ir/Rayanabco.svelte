@@ -21,6 +21,10 @@ const requestsSchema = new Schema({
     masolname: { type: String },
     sarparastname: { type: String },
 
+    rejectreasson: { type: String },
+    rejector: { type: String },
+    rejectbydate: { type: String },
+
 
     createdAt: {
       type: String,

@@ -23,7 +23,7 @@
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
       <h4 class="py-3 breadcrumb-wrapper mb-4">
-        <span class="text-muted fw-light">پیگیری سفارش /</span>
+        <span class="text-muted fw-light">پیگیری درخواست /</span>
         {request.reqnumber}
       </h4>
       <!-- {#if form?.success}
@@ -37,6 +37,7 @@
 
       <!-- Create Deal Wizard -->
       <div id="wizard-create-deal" class="bs-stepper vertical mt-2">
+        {#if request.nextstep != 'اتمام' && request.nextstep != 'رد شده'}
 
         <div class="bs-stepper-header">
 
@@ -93,8 +94,39 @@
   id="تایید مدیر عامل"
   />
   {/if}         
-  
+  <hr />
+  <div class="step">
+    <button type="button" class="btn btn-danger btn-lg col-12" data-bs-toggle="modal" data-bs-target="#DeleteModalToggle">لغو</button>
+
+<!-- Delete Modal -->
+       <div class="modal fade" id="DeleteModalToggle" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+            <div class="modal-content p-3 p-md-5">
+              <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="text-center mb-4 mt-0 mt-md-n2">
+                  <h3 class="secondary-font text-warning"><i class="fa-solid fa-triangle-exclamation"></i></h3>
+                  <p>شما در حال لغو کردن درخواست کالا {request.number} که توسط {request.bywho} ثبت شده است میباشد </p>
+                </div>
+                <form id="DeleteModal" class="row " action="?/shopreject" method="POST" use:enhance>
+                  <label for="rejectreasson"> لطفا دلیل خود را برای لفو کردن سفارش بنویسید</label>
+                  <input type="text" name="rejectreasson" class="form-control" style="margin-bottom: 5%;" required>
+                  <div class="col-6 d-grid" style="text-align: left;">
+                      <a href="#close" class="btn btn-light" data-bs-dismiss="modal" aria-label="Close"> انصراف </a>
+                  </div>
+                  <input type="hidden" name="name" value="s">
+                  <div class="col-6 d-grid" style="text-align: right;" data-bs-toggle="modal" data-bs-target="#succesfulModal">
+                      <button type="submit" class="btn btn-danger"> لغو </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
+        </div>
+<!--/ Delete Modal -->
+          </div>
+        </div>
+        {/if}
         
         
 
@@ -311,9 +343,14 @@
             {#if request.nextstep == 'اتمام'}
             <p class="text-center">
                 <i class="fa-regular fa-circle-check text-success" style="font-size: 3rem !important;"></i><br><br>
-                
             درخواست شماره {request.reqnumber} که توسط {request.bywho} با سمت {request.bywhochildprofession} مورد تایید سرپرست بخش {request.sarparastname} و همچنین مسئول بخش {request.masolname} بودند <br><span>همچنین  مورد تایید جناب اقای مجید سروری , مدیرعامل شرکت آروین فروزش رایاناب نیز میباشد</span>  
              </p>
+            {/if}
+            {#if request.nextstep == 'اتمام'}
+            <p class="text-center">
+              <i class="fa-regular fa-circle-xmark text-danger" style="font-size: 3rem !important;"></i><br><br>
+              درخواست شماره {request.reqnumber} که توسط {request.bywho} در تاریخ {request.createdAt} ثبت شده بود  توسط {request.rejector} در تاریخ {new Intl.DateTimeFormat("fa-IR", {dateStyle: "full",timeStyle: "long",}).format(new Date(request.rejectbydate))} و به دلیل {request.rejectreasson} رد شد
+           </p>
             {/if}
           </div>
         </div>
